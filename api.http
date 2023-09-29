@@ -16,15 +16,15 @@ GET http://localhost:3000/listarAlunos
 
 ###
 
-GET http://localhost:3000/buscarAlunos/7
+GET http://localhost:3000/buscarAlunos/1234
 
 ###
 
-POST http://localhost:3000/alterarAlunos/1
+POST http://localhost:3000/alterarAlunos/1234
 Content-Type: application/json
 
 {
-    "nome": "Joel",
+    "nome": "Enzo",
     "turma": "3º ano info",
     "email": "test@gmail.com",
     "genero": "M",
@@ -32,4 +32,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/excluirAlunos/8
+DELETE http://localhost:3000/excluirAlunos/1234
