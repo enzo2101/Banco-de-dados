@@ -2,11 +2,12 @@ POST http://localhost:3000/novoAlunos
 Content-Type: application/json
 
 {
+    "matricula": "1234",
     "nome": "Joel",
-    "turma": "3º ano info",
     "email": "test@gmail.com",
-    "genero": "M",
-    "data_nascimento": "2000/04/05"
+    "turma": "3º ano info",
+    "data_nascimento": "2000/04/05",
+    "genero": "M"
 }
 
 ###

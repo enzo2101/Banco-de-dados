@@ -1,4 +1,4 @@
-const database = require("../database/connectionKnex"); //importando a conexão com o banco de dados
+const database = require("../database/connection"); //importando a conexão com o banco de dados
 const express = require("express"); //importando a biblioteca express
 const routes = express.Router(); //criando a rota
 const app = express();

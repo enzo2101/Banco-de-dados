@@ -1,11 +1,11 @@
-const database = require("../database/connectionKnex"); //importando a conexão com o banco de dados
+const database = require("../database/connection"); //importando a conexão com o banco de dados
 
 class AlunoController {
   novoAluno(req, res) {
-    const { nome, turma, email, genero, data_nascimento } = req.body;
-    console.log(nome, turma, email, genero, data_nascimento);
+    const { matricula, nome, turma, email, genero, data_nascimento } = req.body;
+    console.log( matricula, nome, turma, email, genero, data_nascimento);
 
-    database.insert({ nome, turma, email, genero, data_nascimento }).table("alunos").then((response) => {
+    database.insert({ matricula, nome, turma, email, genero, data_nascimento }).table("alunos").then((response) => {
       console.log(response);
       res.json({ message: "Aluno cadastrado com sucesso!" });
     }).catch((err) => {
