@@ -1,11 +1,16 @@
 const database = require("../database/connection"); //importando a conexão com o banco de dados
+const path = require("path");
 
 class AlunoController {
-  novoAluno(req, res) {
-    const { matricula, nome, turma, email, genero, data_nascimento } = req.body;
-    console.log( matricula, nome, turma, email, genero, data_nascimento);
+  novoAlunoGET (req, res) {
+    res.render(path.join(__dirname, "../views/novoAluno.ejs"));
+  }
 
-    database.insert({ matricula, nome, turma, email, genero, data_nascimento }).table("alunos").then((response) => {
+  novoAluno(req, res) {
+    const { nome, turma, email, genero } = req.body;
+    console.log( nome, turma, email, genero );
+
+    database.insert({ nome, turma, email, genero }).table("alunos").then((response) => {
       console.log(response);
       res.json({ message: "Aluno cadastrado com sucesso!" });
     }).catch((err) => {
@@ -16,8 +21,8 @@ class AlunoController {
 
   listarAlunos(req, res) {
       database.select("*").from("alunos").then((response) => {
-        console.log(response);
-        res.json(response);
+        console.log(response);  
+        res.render(path.join(__dirname, "../views/listarAluno.ejs"), { alunos: response });
       }).catch((err) => {
         console.log(err);
         res.status(500).json({ error: "Erro ao listar alunos" });
@@ -38,10 +43,10 @@ class AlunoController {
 
   alterarAlunos(req, res) {
     const id = req.params;
-    const { nome, turma, email, genero, data_nascimento } = req.body;
-    console.log(nome, turma, email, genero, data_nascimento);
+    const { nome, turma, email, genero } = req.body;
+    console.log(nome, turma, email, genero);
 
-    database.update({ nome, turma, email, genero, data_nascimento }).table("alunos").where({matricula:id.matricula}).then((response) => {
+    database.update({ nome, turma, email, genero }).table("alunos").where({matricula:id.matricula}).then((response) => {
       console.log(response);
       res.json({ message: "Aluno alterado com sucesso!" });
     }).catch((err) => {

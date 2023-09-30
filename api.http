@@ -2,11 +2,9 @@ POST http://localhost:3000/novoAlunos
 Content-Type: application/json
 
 {
-    "matricula": "1234",
     "nome": "Joel",
     "email": "test@gmail.com",
     "turma": "3º ano info",
-    "data_nascimento": "2000/04/05",
     "genero": "M"
 }
 
@@ -16,11 +14,11 @@ GET http://localhost:3000/listarAlunos
 
 ###
 
-GET http://localhost:3000/buscarAlunos/1234
+GET http://localhost:3000/buscarAlunos/2
 
 ###
 
-POST http://localhost:3000/alterarAlunos/1234
+POST http://localhost:3000/alterarAlunos/2
 Content-Type: application/json
 
 {
@@ -32,4 +30,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/excluirAlunos/1234
+DELETE http://localhost:3000/excluirAlunos/2
